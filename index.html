@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pusha.one</title>
+
+        <link href="favicon.png" rel="shortcut icon">
+        <link href="favicon.png" rel="apple-touch-icon">
+        <link href="favicon.png" rel="apple-touch-icon-precomposed">
+        <link href="favicon.png" rel="icon" sizes="192x192">
+        <meta property="og:image" content="favicon.png">
+        <meta property="twitter:image:src" content="favicon.png">
+        <meta name="image" content="favicon.png">
+        <meta itemprop="image" content="favicon.png">
+        <meta name="og:image" content="favicon.png">
+        <meta name="description" content="Pusha.one, customize your own coin pusher game rewards.">
+        <meta itemprop="name" content="Pusha.one, customize your own coin pusher game rewards.">
+        <meta name="og:description" content="Pusha.one, customize your own coin pusher game rewards.">
+        <meta name="og:title" content="Pusha.one">
+        <meta name="og:site_name" content="Pusha.one">
+        <meta name="og:type" content="website">
+        <meta name="og:url" content="https://Pusha.one">
+        
+        <meta name="theme-color" content="#ffbf00">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <style>
+            body
+            {
+                background-image: url('bg.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color:#87CEEB;
+                color:#FFF;
+            }
+
+            @media only screen and (max-width: 1025px)
+            {
+                .center
+                {
+                    border: 1px solid #ffbf00;
+                    padding: 10px;
+                    background-color: rgba(33, 33, 33, 0.8);
+                }
+            }
+
+            @media only screen and (min-width: 1025px)
+            {
+                .center
+                {
+                    position: fixed;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    border: 1px solid #ffbf00;
+                    padding: 10px;
+                    background-color: rgba(33, 33, 33, 0.8);
+                    max-width: 533px;
+                }
+            }
+
+            input[type=text]
+            {
+                padding:5px;
+                border:2px solid #ffbf00;
+                background-color: #222;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                color:#FFF;
+                width:300px;
+            }
+
+            input[type=text]:focus
+            {
+                border-color:#00e1ff;
+                outline: none;
+            }
+
+            input[type=button]
+            {
+                padding:7px 15px;
+                background:#ffbf00;
+                border:0 none;
+                cursor:pointer;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+                color: #222;
+            }
+
+            input[type=button]:hover
+            {
+                padding:7px 15px; 
+                background:#00e1ff; 
+                border:0 none;
+                cursor:pointer;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+                color: #222;
+            }
+
+            a:link
+            {
+                color: #ffbf00;
+            }
+
+            a:visited
+            {
+                color: #ffbf00;
+            }
+
+            a:hover
+            {
+                color: #00e1ff;
+            }
+
+            a:active
+            {
+                color: #00e1ff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cd" class="center">
+            <b>Example Usage:</b> https://pusha.one/game/?api-url<br>
+            <b>Example Usage:</b> https://pusha.one/game/?mywebsite.com/api.php<br>
+            <br>
+            The concept is that by using your API callback URL you can customise what the prizes that the coin pusher game will reward to the user, the prizes display a javascript alert() box once they are won and using this alert box you are able to reward the user with a link, product keys, discount codes, etc. The user makes this request from their browser allowing you to create session cookies so that each user gets a unique discount code or similar. You could have a limited supply and when they run out just return "this prize giveaway has ended" or similar.<br>
+            <br>
+            <b>Your API url will receive the following url query parameters;</b><br>
+            - {pid} present box theme id<br>
+            <details>
+                <summary>Present Box Theme ID's</summary>
+                <ol start="2">
+                    <li>Maroon with Silver ribbon</li>
+                    <li>Maroon with Gold ribbon</li>
+                    <li>Purple with Silver ribbon</li>
+                    <li>Purple with Gold ribbon</li>
+                    <li>Purple with Silver ribbon</li>
+                    <li>Pink with Silver ribbon</li>
+                    <li>Turquoise with White ribbon</li>
+                    <li>Purple with Sky Blue ribbon</li>
+                    <li>White with Cobalt ribbon</li>
+                    <li>Cobalt with Silver ribbon</li>
+                    <li>Cobalt with Gold ribbon</li>
+                </ol>
+            </details>
+            - {coins} how many coins played since game start<br>
+            - {elapsed} how many seconds elapsed since game start<br>
+            - {winnum} current number of presents won<br>
+            - {width} screen width<br>
+            - {height} screen height<br>
+            <br>
+            <b>Request Example:</b><br>
+            <code style="overflow-wrap:break-word;">mywebsite.com/api.php?pid=1&coins=92&elapsed=34.16&winnum=1&width=320&height=240</code><br>
+            <br>
+            <b>What format to supply as your API URL?</b><br>
+            <code>mywebsite.com/api.php</code><br><br>
+            <i>Just the domain and page with no query parameters or http/https, all urls must be https accessible.<br><br>Make sure you enabled cores for Pusha.one<br><code>Access-Control-Allow-Origin: https://Pusha.one</code>.<br><br>Tip: Press 'c' to switch between Perspective and Orthographic.</i><br>
+            <br>
+            <a rel="nofollow" href="https://pusha.one/framed.html">Demo Game</a> <a href="#" onclick="javascript:pop('https://pusha.one/framed.html')">[pop]</a>
+            <br><br>
+            <details>
+                <summary>Example API endpoint in PHP</summary>
+            <code>
+            &lt;?php
+            header("Access-Control-Allow-Origin: https://Pusha.one"); 
+            echo $_SERVER['QUERY_STRING'];
+            ?&gt;
+            </code>
+            </details>
+        </div>
+
+        <script>
+            function pop(url)
+            {
+                var w = 800;
+                var h = 600;
+                var left = (screen.width/2)-(w/2);
+                var top = (screen.heigh2)-(h/2);
+                window.open(url, "fg563rf", "top="+top+", left="+left+", width="+w+", height="+h+", resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, copyhistory=no").blur();
+            }
+        </script>
+    </body>
+</html>
